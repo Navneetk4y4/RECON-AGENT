@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "recon-agent"
+version = "0.1.0"
+description = "Network reconnaissance agent for penetration testing"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.13"
+mcp = {extras = ["cli"], version = ">=1.13.1"}
+pydantic = "^2.6.1"  # For data validation
+rich = "^13.7.0"    # For better console output
+colorama = "^0.4.6"  # For colored terminal output
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-asyncio = "^0.23.5"
+mypy = "^1.8.0"
+black = "^24.1.1"
+isort = "^5.13.2"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+strict = true
+
+
