@@ -14,7 +14,7 @@
 
 ## Features
 
-This reconnaissance agent provides a comprehensive suite of tools for various security tasks:
+This reconnaissance agent provides a comprehensive suite of tools for various security tasks, with more to be added in the future. Currently, it includes:
 
 -   **Nmap:** Perform network scanning to discover hosts and services.
 -   **Dig:** Conduct DNS queries for detailed DNS information.
@@ -46,18 +46,11 @@ To set up and run this project, follow these steps:
     uvicorn server:app --reload
     ```
 
-## Usage
+
 
 ## Usage
 
-Once the server is running, you can interact with the reconnaissance tools through the MCP framework. Each tool can be invoked using the `run_mcp` command with the appropriate tool name and parameters. For example:
-
-```bash
-mcp_recon_agent_nmap_scan target=example.com kwargs="-p 80,443"
-mcp_recon_agent_dig_query domain=example.com query_type=MX
-```
-
-Refer to the FastMCP documentation for more details on how to use the tools and their available parameters.
+Once the server is running, you can interact with the reconnaissance tools through the MCP framework. Each tool can be invoked using the `run_mcp` command with the appropriate tool name and parameters. Refer to the FastMCP documentation for more details on how to use the tools and their available parameters.
 
 ## Contributing
 
