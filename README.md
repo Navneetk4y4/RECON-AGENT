@@ -49,33 +49,19 @@ To integrate this reconnaissance agent with your AI client, configure it with th
 
 ```json
 {
-  "args": [
-    "path/to/your/recon_agent/server.py"
-  ],
-  "command": "path/to/your/python_executable",
-  "env": {
-    "PYTHONPATH": "path/to/your/recon_agent"
-  },
-  "useBuiltInNode": true
+  "mcpServers": {
+    "recon-agent": {
+      "command": "path/to/your/python_executable",
+      "args": [
+        "path/to/your/recon_agent/server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "path/to/your/recon_agent"
+      }
+    }
+  }
 }
 ```
-
-For GitHub users, the paths would typically be:
-
-```json
-{
-  "args": [
-    "/Users/YOUR_USERNAME/RECON-AGENT/mcp_servers/recon_agent/server.py"
-  ],
-  "command": "/Users/YOUR_USERNAME/RECON-AGENT/mcp_servers/recon_agent/.venv/bin/python",
-  "env": {
-    "PYTHONPATH": "/Users/YOUR_USERNAME/RECON-AGENT/mcp_servers/recon_agent"
-  },
-  "useBuiltInNode": true
-}
-```
-
-Remember to replace `YOUR_USERNAME` with your actual GitHub username.
 
 Once the server is running, you can interact with the reconnaissance tools through the MCP framework. Each tool can be invoked using the `run_mcp` command with the appropriate tool name and parameters. Refer to the FastMCP documentation for more details on how to use the tools and their available parameters.
 
