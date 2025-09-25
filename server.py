@@ -13,7 +13,6 @@ import subprocess
 from inspect import Parameter
 from mcp.server.fastmcp import FastMCP
 
-# Set up logging to stderr instead of stdout
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
@@ -21,10 +20,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger("recon-agent")
 
-# Initialize server
+
 mcp = FastMCP("recon-agent")
 
-# Import tool registry after setting up logging
+
 try:
     from tool_registry import ToolRegistry
     tool_registry = ToolRegistry()
@@ -35,7 +34,7 @@ except ImportError as e:
             return {}
     tool_registry = DummyToolRegistry()
 
-# Type mapping from string to actual Python types
+
 type_map = {
     "string": str,
     "array": list,
@@ -60,7 +59,7 @@ def parse_kwargs_string(kwargs_string):
                     params[key.strip()] = value.strip()
             return params
         else:
-            # simplified fallback: only map to "target"
+            
             return {"target": kwargs_string}
     except Exception as e:
         logger.error(f"Error parsing kwargs string: {kwargs_string}, error: {e}")
@@ -80,7 +79,7 @@ def check_tool_installation(tool_name):
     except Exception:
         return False
 
-# Register all tools dynamically
+
 for tool_name, tool_info in tool_registry.list_tools().items():
     tool_func = tool_info["function"]
     schema = tool_info["schema"]
